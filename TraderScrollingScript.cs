@@ -46,6 +46,10 @@ namespace TraderScrolling
             scrollrect.movementType = ScrollRect.MovementType.Elastic;
             scrollrect.viewport = containerRect;
             scrollrect.scrollSensitivity = TraderScrolling.ScrollWheelSpeed.Value;
+            if (TraderScrolling.ReverseWheelDirection.Value)
+            {
+                scrollrect.scrollSensitivity = -TraderScrolling.ScrollWheelSpeed.Value;
+            }
             _referenceScrollRect = scrollrect;
 
             TraderScrolling.ScrollWheelSpeed.SettingChanged += (a, b) => AdjustScrollSpeed();
