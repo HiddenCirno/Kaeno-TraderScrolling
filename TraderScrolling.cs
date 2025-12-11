@@ -7,8 +7,9 @@ namespace TraderScrolling
     public class TraderScrolling : BaseUnityPlugin
     {
         internal static ConfigEntry<float> ScrollWheelSpeed { get; set; }
-        
-        
+        internal static ConfigEntry<bool> ReverseWheelDirection { get; set; }
+
+
         private void Start()
         {
             InitConfiguration();
@@ -19,6 +20,7 @@ namespace TraderScrolling
         private void InitConfiguration()
         {
             ScrollWheelSpeed = Config.Bind("Config", "Scroll Wheel Speed", 30f, "Adjusts scrolling speed when using mousewheel");
+            ReverseWheelDirection = Config.Bind("Config", "Reverse Wheel Direction", false, "Reverses the wheel's input direction to make it more comfortable to use");
         }
     }
 }
